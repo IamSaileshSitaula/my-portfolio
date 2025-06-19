@@ -1,0 +1,104 @@
+/* =============================================
+   ABOUT SECTION: MONOCHROME & TYPOGRAPHIC
+   (Matches other Monochrome models)
+   ============================================= */
+
+/* Base section styling */
+#about {
+  background-color: #fff;
+}
+
+/* Section title (e.g., "About") */
+#about .section-title {
+  text-align: center;
+}
+
+
+/* Main content area (holds image and text) */
+.about-content {
+  display: flex;
+  align-items: flex-start; /* Aligns items to the top */
+  gap: 1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Styling for the profile image */
+.about-image img {
+  width: 120px;   /* Larger, more prominent image */
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover; /* Prevents image distortion */
+  border: 2px solid #f0f0f0; /* Simple grey border */
+}
+
+/* Container for all text content */
+.about-text {
+  flex: 1; /* Allows text to take up remaining space */
+}
+
+
+/* Paragraph styles */
+.about-text p {
+  color: #888; /* Softer grey for skills */
+  font-family: 'Inconsolata', monospace; /* Consistent monospace font */
+  font-size: 1.2rem;
+}
+
+/* Container for info items (Location, Education) */
+.about-info {
+  display: flex;
+  gap: 2.5rem; /* Space between info items */
+  border-top: 1px solid #eee; /* Separator line */
+}
+
+/* Individual info item */
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Icon styling */
+.info-item i {
+  font-size: 1.5rem;
+  color: #111; /* Main dark color for icons */
+}
+
+/* Text part of the info item */
+.info-text {
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 600; /* Makes the label (e.g., "Location") bold */
+}
+
+/* The actual data/value */
+.info-text span {
+  display: block;
+  font-family: 'Inconsolata', monospace; /* Monospace font for data */
+  color: #888;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+
+/* === Responsive Design for Mobile === */
+@media screen and (max-width: 768px) {
+  .about-content {
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center; /* Center items when stacked */
+    text-align: center; /* Center text for a better mobile view */
+    gap: 2rem;
+  }
+
+  .about-info {
+    flex-direction: column; /* Stack info items vertically */
+    align-items: center; /* Center the info items */
+    gap: 1.5rem;
+  }
+
+  .info-item {
+    text-align: left; /* Keep info item text left-aligned for readability */
+  }
+}

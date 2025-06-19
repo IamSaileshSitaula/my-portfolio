@@ -1,0 +1,81 @@
+/* =============================================
+   RESPONSIVE STYLES: MONOCHROME & TYPOGRAPHIC
+   ============================================= */
+
+/* === For Tablets and Smaller Desktops === */
+@media (max-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+
+/* === For Tablets and Mobile Phones === */
+@media (max-width: 768px) {
+  /* --- Header & Mobile Navigation --- */
+  .hamburger {
+    display: flex; /* Show hamburger icon */
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%; /* Position right below the header */
+    left: 0;
+    width: 100%;
+    /* These variables now pull from our new monochrome base.css */
+    background-color: var(--color-bg-light);
+    border-top: 1px solid var(--color-border);
+    
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-unit) 0;
+
+    /* Hide/show transition */
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .nav-menu.active { /* This class is toggled by JavaScript */
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-menu .nav-list {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-item {
+    margin: 1rem 0;
+  }
+
+
+  /* --- General Font Size Adjustments --- */
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+
+}
+
+
+/* === For Small Mobile Phones === */
+@media (max-width: 480px) {
+  /* Reduce section spacing on very small screens */
+  .section {
+    padding: 3rem 1rem;
+  }
+
+  /* Further adjust font sizes for readability */
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.8rem; }
+  h3 { font-size: 1.3rem; }
+
+  /* Adjust button padding for smaller targets */
+  .btn { /* Assumes a general .btn class exists */
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}

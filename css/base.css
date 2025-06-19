@@ -1,0 +1,102 @@
+/* =============================================
+   BASE STYLES: MONOCHROME & TYPOGRAPHIC
+   ============================================= */
+
+/* --- Simple Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px; /* Set a base font size */
+}
+
+/* --- THEME VARIABLES --- */
+:root {
+  /* Color Palette */
+  --color-darkest: #111;
+  --color-dark: #333;
+  --color-medium: #555;
+  --color-light: #888;
+  --color-border: #eee;
+  --color-bg-light: #ffffff;
+  --color-bg-dark: #181818;
+
+  /* Typography */
+  --font-primary: 'Oswald', sans-serif;    /* For main titles */
+  --font-secondary: 'Roboto', sans-serif; /* For body text, sub-headings */
+  --font-monospace: 'Inconsolata', monospace; /* For details, meta text */
+
+  /* Spacing */
+  --spacing-unit: 1rem;
+}
+
+/* --- BASE ELEMENT STYLES --- */
+body {
+  font-family: 'Inconsolata', monospace;
+  line-height: 1.7;
+  color: var(--color-medium);
+  background-color: var(--color-bg-light);
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--color-dark);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-darkest);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- TYPOGRAPHY HIERARCHY --- */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-dark);
+  font-family: 'Inconsolata', monospace;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+h1 { font-size: 2.8rem; margin-bottom: 1.5rem; }
+h2 { font-size: 1.6rem; margin-bottom: 1.25rem; }
+h3 { font-size: 1.4rem; margin-bottom: 1rem; font-family: var(--font-secondary); font-weight: 700; text-transform: none; letter-spacing: normal; }
+h4 { font-size: 1.2rem; margin-bottom: 1rem; font-family: var(--font-secondary); font-weight: 700; text-transform: none; letter-spacing: normal; }
+
+
+/* --- LAYOUT & REUSABLE CLASSES --- */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-unit);
+}
+
+.section {
+  /* This is the master control for spacing between sections */
+  padding: 4rem 1rem;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Underline for section titles */
+.section-title h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 2px;
+  background-color: var(--color-border); /* Subtle grey underline */
+  margin: 0.75rem auto 0;
+}

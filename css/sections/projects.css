@@ -1,0 +1,86 @@
+/* =============================================
+   PROJECTS: TYPOGRAPHIC CONTAINED CARDS
+   ============================================= */
+
+/* The grid container for all project cards */
+.projects-container {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+ gap: 2rem;
+}
+
+/* The main card style */
+.project-card {
+ background: #fff;
+ border: 1px solid #eee;
+ border-radius: 8px;
+ box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+ transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+ /* Make the card a flex container to help content fill its height */
+ display: flex;
+}
+
+.project-card:hover {
+ transform: translateY(-5px);
+ box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* The content wrapper inside the card */
+.project-content {
+ padding: 2rem;
+ width: 100%;
+
+ /* This creates the magic alignment */
+ display: flex;
+ flex-direction: column;
+}
+
+.project-tags {
+ color: #888;
+ font-family: 'Inconsolata', monospace;
+ font-size: 0.9rem;
+}
+
+.project-tag:not(:last-child)::after {
+ content: " / ";
+ margin: 0 0.25rem;
+}
+
+.project-title {
+ font-family: 'Inconsolata', monospace;
+ font-size: 1.6rem;
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ color: #111;
+ margin: 0 0 0.75rem 0;
+}
+
+/* The main description paragraph */
+.project-content p {
+ color: #555;
+ line-height: 1.7;
+ margin-bottom: 1.5rem;
+ 
+ /* KEY: This makes the description grow to push the button to the bottom */
+ flex-grow: 1; 
+}
+
+/* The "View Details" button */
+.project-btn {
+ text-decoration: none;
+ color: #000;
+ border: 2px solid #000;
+ font-weight: 700;
+ display: inline-block;
+ padding: 0.6rem 1.2rem;
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ transition: background 0.3s, color 0.3s;
+ align-self: flex-start; /* Aligns button to the left */
+}
+
+.project-btn:hover {
+ background: #000;
+ color: #fff;
+}

@@ -1,0 +1,40 @@
+/* =============================================
+   CTA SECTION: MONOCHROME & TYPOGRAPHIC
+   (Matches other Monochrome models)
+   ============================================= */
+
+/* Main section container for the CTA */
+#cta {
+  background-color: #f9f9f9; /* A very light grey to separate from white sections */
+  text-align: center;
+}
+
+/* The button itself */
+.cta-btn-alt {
+  /* Positioning & Box Model */
+  display: inline-block; /* Allows padding and keeps it from stretching full-width */
+  border: 2px solid #111; /* A strong, solid black border */
+  
+  /* Color & Background */
+  color: #111;
+  background-color: transparent;
+
+  /* Typography */
+  font-family: 'Inconsolata', monospace; /* Consistent bold, uppercase font */
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+
+  /* Animation */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect to invert colors */
+.cta-btn-alt:hover {
+  background-color: #111;
+  color: #fff;
+  transform: translateY(-3px); /* Adds a subtle lift on hover */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}

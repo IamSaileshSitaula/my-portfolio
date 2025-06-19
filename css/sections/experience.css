@@ -1,0 +1,41 @@
+/* ======== 2. Contained Cards ======== */
+
+/* The main container becomes a responsive grid */
+.timeline {
+  display: grid;
+  grid-template-columns: 1fr; /* Default to one column */
+  gap: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* On larger screens, you can have two columns */
+@media (min-width: 768px) {
+  .timeline {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Each job item is now a styled card */
+.timeline-item {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.timeline-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+}
+
+/* Add padding inside the card */
+.timeline-content {
+  padding: 2rem;
+}
+
+/* (All font styles for .timeline-date, .timeline-title, etc., are the same as Option 1) */
+.timeline-date { font-family: 'Inconsolata', monospace; /* ... */ }
+.timeline-title { font-family: 'Inconsolata', monospace; /* ... */ }
+.timeline-place { font-family: 'Inconsolata', monospace; /* ... */ }
+.timeline-content ul li { font-family: 'Inconsolata', monospace; /* ... */ }

@@ -1,0 +1,68 @@
+/* =============================================
+   CERTIFICATIONS: MONOCHROME & TYPOGRAPHIC STYLE
+   (Matches Project Model 3)
+   ============================================= */
+
+/* Main Section Title Styling */
+#certifications .section-title h3 {
+  font-family: 'Inconsolata', monospace; /* Recommended: same as project title */
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #111;
+}
+
+/* Certifications List Container */
+#certifications .certifications-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Individual Certification Item */
+#certifications .certification-item {
+  background: transparent;
+  border-bottom: 1px solid #eee; /* Simple separator line */
+  transition: border-color 0.3s ease;
+}
+
+#certifications .certification-item:last-child {
+  border-bottom: none;
+}
+
+#certifications .certification-item:hover {
+  border-color: #bbb; /* Subtle hover effect */
+}
+
+/* Certification Title Link */
+#certifications .certification-title a {
+  font-family: 'Inconsolata', monospace; /* Consistent strong title font */
+  text-decoration: none;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #222;
+  transition: color 0.3s ease;
+}
+
+#certifications .certification-title a:hover {
+  color: #888;
+}
+
+/* Skills List using Monospace Font and Typographic Separators */
+#certifications .skills-list {
+  color: #888; /* Softer grey for skills */
+  font-family: 'Inconsolata', monospace; /* Consistent monospace font */
+  font-size: 1.6 rem;
+}
+
+/* Add a slash ("/") separator after each skill */
+#certifications .skills-list span::after {
+  content: " / ";
+  margin: 0 0.25rem;
+}
+
+/* Remove the separator from the very last skill */
+#certifications .skills-list span:last-child::after {
+  content: "";
+}

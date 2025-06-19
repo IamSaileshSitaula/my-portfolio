@@ -1,0 +1,55 @@
+/* =============================================
+   CONTACT: MONOCHROME & TYPOGRAPHIC
+   (Matches Project & Certification Model 3)
+   ============================================= */
+
+/* Main section container */
+#contact {
+  background-color: #fff; /* A clean white background */
+  text-align: center;
+}
+
+/* Wrapper for all content */
+.contact-wrapper {
+  max-width: 600px; /* Constrain width for readability */
+  margin: 0 auto;
+}
+
+/* Contact section title */
+.contact-wrapper h2 {
+  font-family: 'Inconsolata', monospace; /* Consistent strong title font */
+  font-size: 1.6rem;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+/* Contact section paragraph/subtitle */
+.contact-wrapper p {
+  color: #555;
+  font-family: 'Inconsolata', monospace; /* A clean serif for body text */
+  font-size: 1.2rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+/* Container for social/contact icons */
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem; /* Generous space between icons */
+}
+
+/* Individual icon links */
+.contact-icons a {
+  color: #888; /* Muted grey for icons */
+  font-size: 2rem; /* Make icons prominent */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for icons */
+.contact-icons a:hover {
+  color: #111; /* Change to the main dark color on hover */
+  transform: translateY(-3px); /* Subtle lift effect */
+}

@@ -1,0 +1,48 @@
+/* =============================================
+   FOOTER: MONOCHROME & TYPOGRAPHIC
+   (Matches other Monochrome models)
+   ============================================= */
+
+/* Main footer container */
+.footer {
+  /* A deep, near-black for a strong foundation.
+     This would correspond to your var(--background-color-dark). */
+  background-color: #181818; 
+  padding: 2.5rem 1rem;
+  text-align: center;
+}
+
+/* Wrapper for the footer content */
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px; /* Constrain width for very large screens */
+  margin: 0 auto;
+}
+
+/* Copyright text and other paragraphs in the footer */
+.footer p {
+  margin: 0;
+
+  /* Use the monospace font for consistency with other "detail" text */
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+
+  /* A soft, light grey is easier on the eyes than pure white.
+     This would correspond to your var(--text-color-light). */
+  color: #a0a0a0; 
+}
+
+/* Optional: Styling for any links you might add to the footer */
+.footer a {
+  color: #ddd; /* Make links slightly brighter than the surrounding text */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #fff; /* Brighten to pure white on hover */
+}
