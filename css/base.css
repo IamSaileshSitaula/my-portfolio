@@ -26,8 +26,8 @@ html {
   --color-bg-dark: #181818;
 
   /* Typography */
-  --font-primary: 'Oswald', sans-serif;    /* For main titles */
-  --font-secondary: 'Roboto', sans-serif; /* For body text, sub-headings */
+  --font-primary: 'Inconsolata', monospace;    /* For main titles */
+  --font-secondary: 'Inconsolata', monospace; /* For body text, sub-headings */
   --font-monospace: 'Inconsolata', monospace; /* For details, meta text */
 
   /* Spacing */
@@ -36,7 +36,6 @@ html {
 
 /* --- BASE ELEMENT STYLES --- */
 body {
-  font-family: 'Inconsolata', monospace;
   line-height: 1.7;
   color: var(--color-medium);
   background-color: var(--color-bg-light);
@@ -83,12 +82,12 @@ h4 { font-size: 1.2rem; margin-bottom: 1rem; font-family: var(--font-secondary);
 
 .section {
   /* This is the master control for spacing between sections */
-  padding: 4rem 1rem;
+  padding: 2rem 1rem;
 }
 
 .section-title {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 /* Underline for section titles */
