@@ -23,15 +23,6 @@
   margin: 0 auto;
 }
 
-/* Styling for the profile image */
-.about-image img {
-  width: 120px;   /* Larger, more prominent image */
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover; /* Prevents image distortion */
-  border: 2px solid #f0f0f0; /* Simple grey border */
-}
-
 /* Container for all text content */
 .about-text {
   flex: 1; /* Allows text to take up remaining space */
