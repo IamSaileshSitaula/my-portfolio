@@ -9,174 +9,323 @@
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        /* CSS Reset and Base Styles */
-        :root {
-            --black: #111;
-            --dark-gray: #333;
-            --mid-gray: #555;
-            --light-gray: #888;
-            --border-gray: #eee;
-            --bg-light: #f9f9f9;
-            --white: #fff;
-            --footer-bg: #181818;
-            --footer-text: #a0a0a0;
-        }
+        /* =============================================
+           BASE STYLES: MONOCHROME & TYPOGRAPHIC
+           ============================================= */
 
+        /* --- Simple Reset --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Inconsolata', monospace;
-            background-color: var(--white);
-            color: var(--dark-gray);
-            line-height: 1.7;
+        html {
+            scroll-behavior: smooth;
             font-size: 16px;
         }
 
-        /* Header and Navigation */
-        .header {
-            position: sticky;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: var(--white);
-            border-bottom: 1px solid var(--border-gray);
-            z-index: 1000;
-            padding: 1rem 1.5rem;
+        /* --- THEME VARIABLES --- */
+        :root {
+            /* Color Palette */
+            --color-darkest: #111;
+            --color-dark: #333;
+            --color-medium: #555;
+            --color-light: #888;
+            --color-border: #eee;
+            --color-bg-light: #ffffff;
+            --color-bg-dark: #181818;
+
+            /* Typography */
+            --font-primary: 'Inconsolata', monospace;
+            --font-secondary: 'Inconsolata', monospace;
+            --font-monospace: 'Inconsolata', monospace;
+
+            /* Spacing */
+            --spacing-unit: 1rem;
         }
 
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1140px;
-            margin: 0 auto;
+        /* --- BASE ELEMENT STYLES --- */
+        body {
+            line-height: 1.7;
+            color: var(--color-medium);
+            background-color: var(--color-bg-light);
+            overflow-x: hidden;
+            font-family: var(--font-secondary);
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--black);
+        a {
+            color: var(--color-dark);
             text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--color-darkest);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- TYPOGRAPHY HIERARCHY --- */
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--color-dark);
+            font-family: 'Inconsolata', monospace;
+            font-weight: 600;
+            text-transform: uppercase;
             letter-spacing: 1px;
         }
 
+        h1 { font-size: 2.8rem; margin-bottom: 1.5rem; }
+        h2 { font-size: 1.6rem; margin-bottom: 1.25rem; }
+        h3 { font-size: 1.4rem; margin-bottom: 1rem; font-family: var(--font-secondary); font-weight: 700; text-transform: none; letter-spacing: normal; }
+        h4 { font-size: 1.2rem; margin-bottom: 1rem; font-family: var(--font-secondary); font-weight: 700; text-transform: none; letter-spacing: normal; }
+
+        /* --- LAYOUT & REUSABLE CLASSES --- */
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section {
+            padding: 2rem 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* Underline for section titles */
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: var(--color-border);
+            margin: 0.75rem auto 0;
+        }
+
+        /* =============================================
+           HEADER: MONOCHROME & TYPOGRAPHIC
+           ============================================= */
+
+        /* Main header container */
+        #header {
+            background-color: #fff;
+            padding: 1.5rem 1rem;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        /* Flex container for logo and navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* The logo text */
+        .logo {
+            font-family: 'Inconsolata', monospace;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #111;
+            text-decoration: none;
+        }
+
+        /* The part of the logo that was previously colored */
         .logo span {
             color: #999;
             font-weight: 400;
         }
 
-        .nav-links {
-            display: none;
+        /* --- Navigation Menu --- */
+        .nav-menu .nav-list {
             list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
         }
 
-        .nav-links a {
-            color: var(--mid-gray);
+        .nav-item {
+            margin-left: 2.5rem;
+        }
+
+        .nav-link {
+            font-family: 'Inconsolata', monospace;
+            color: #333;
+            font-weight: 500;
+            font-size: 1.4rem;
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 0;
+            position: relative;
             transition: color 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--black);
+        /* Hover effect for links */
+        .nav-link:hover {
+            color: #111;
         }
 
-        .hamburger-menu {
-            display: block;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-
-        .hamburger-menu .bar {
-            display: block;
-            width: 25px;
-            height: 2px;
-            margin: 5px auto;
-            background-color: var(--dark-gray);
-            transition: all 0.3s ease-in-out;
-        }
-
-        .mobile-nav {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background-color: var(--white);
-            border-bottom: 1px solid var(--border-gray);
-        }
-
-        .mobile-nav.active {
-            display: block;
-        }
-
-        .mobile-nav ul {
-            list-style: none;
-            padding: 1rem 0;
-        }
-        
-        .mobile-nav ul li a {
-            display: block;
-            text-align: center;
-            padding: 1rem;
-            color: var(--mid-gray);
-            text-decoration: none;
-        }
-        
-        .hamburger-menu.active .bar:nth-child(2) { opacity: 0; }
-        .hamburger-menu.active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .hamburger-menu.active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-        /* Main Content and Sections */
-        .container {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .section {
-            padding: 4rem 1rem;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--dark-gray);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 2rem;
-            padding-bottom: 0.5rem;
-            position: relative;
-        }
-        
-        .section-title::after {
+        /* The underline effect on hover */
+        .nav-link::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
+            width: 0;
             height: 2px;
-            background-color: var(--border-gray);
+            bottom: 0;
+            left: 0;
+            background-color: #111;
+            transition: width 0.3s ease-out;
         }
-        
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* --- Hamburger Icon for Mobile --- */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #111;
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+
+        /* =============================================
+           FOOTER: MONOCHROME & TYPOGRAPHIC
+           ============================================= */
+
+        /* Main footer container */
+        .footer {
+            background-color: #181818; 
+            padding: 2.5rem 1rem;
+            text-align: center;
+        }
+
+        /* Wrapper for the footer content */
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Copyright text and other paragraphs in the footer */
+        .footer p {
+            margin: 0;
+            font-family: 'Inconsolata', monospace;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            color: #a0a0a0; 
+        }
+
+        /* Optional: Styling for any links you might add to the footer */
+        .footer a {
+            color: #ddd;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #fff;
+        }
+
+        /* =============================================
+           RESPONSIVE STYLES
+           ============================================= */
+
+        /* === For Tablets and Mobile Phones === */
+        @media (max-width: 768px) {
+            /* --- Header & Mobile Navigation --- */
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--color-bg-light);
+                border-top: 1px solid var(--color-border);
+                
+                flex-direction: column;
+                align-items: center;
+                padding: var(--spacing-unit) 0;
+
+                /* Hide/show transition */
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-menu .nav-list {
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-item {
+                margin: 1rem 0;
+            }
+
+            /* --- General Font Size Adjustments --- */
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+        }
+
+        /* === For Small Mobile Phones === */
+        @media (max-width: 480px) {
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            h3 { font-size: 1.3rem; }
+        }
+
+        /* =============================================
+           PROJECT-SPECIFIC STYLES
+           ============================================= */
+
         .intro-text {
             text-align: center;
             max-width: 800px;
             margin: 0 auto 2rem auto;
-            color: var(--mid-gray);
+            color: var(--color-medium);
         }
         
         .github-link {
             display: inline-block;
-            background-color: var(--dark-gray);
-            color: var(--white);
+            background-color: var(--color-dark);
+            color: var(--color-bg-light);
             padding: 0.75rem 1.5rem;
             text-decoration: none;
             text-transform: uppercase;
@@ -186,22 +335,13 @@
         }
         
         .github-link:hover {
-             background-color: var(--black);
+             background-color: var(--color-darkest);
         }
 
         p, .text-content {
-            color: var(--mid-gray);
+            color: var(--color-medium);
             margin-bottom: 1.5rem;
             max-width: 800px;
-        }
-        
-        h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-            color: var(--dark-gray);
         }
 
         .dashboard-container {
@@ -211,8 +351,8 @@
         }
 
         .info-card {
-            background-color: var(--bg-light);
-            border: 1px solid var(--border-gray);
+            background-color: #f9f9f9;
+            border: 1px solid var(--color-border);
             padding: 1.5rem;
         }
         
@@ -240,25 +380,25 @@
         }
         
         .active-btn {
-            background-color: var(--dark-gray) !important;
-            color: var(--white) !important;
-            border: 1px solid var(--dark-gray);
+            background-color: var(--color-dark) !important;
+            color: var(--color-bg-light) !important;
+            border: 1px solid var(--color-dark);
         }
         
         .inactive-btn {
-            background-color: var(--white);
-            color: var(--mid-gray);
-            border: 1px solid var(--border-gray);
+            background-color: var(--color-bg-light);
+            color: var(--color-medium);
+            border: 1px solid var(--color-border);
         }
 
         .stat-card {
-             border-left: 4px solid var(--dark-gray);
+             border-left: 4px solid var(--color-dark);
              padding-left: 1rem;
         }
         
         .stat-card h3 { font-size: 1rem; }
         .stat-card p { margin-bottom: 0; }
-        #winner-model { font-size: 1.75rem; color: var(--black); }
+        #winner-model { font-size: 1.75rem; color: var(--color-darkest); }
 
         .cv-table-item {
             display: flex;
@@ -266,10 +406,10 @@
             align-items: center;
             font-size: 0.9rem;
             padding: 0.5rem 0;
-            border-bottom: 1px solid var(--border-gray);
+            border-bottom: 1px solid var(--color-border);
         }
         .cv-table-item:last-child { border-bottom: none; }
-        .cv-winner { background-color: var(--white); }
+        .cv-winner { background-color: var(--color-bg-light); }
         
         .forecast-grid {
              display: grid;
@@ -282,22 +422,8 @@
              height: 300px;
         }
 
-        /* Footer */
-        .footer {
-            background-color: var(--footer-bg);
-            padding: 2rem 1rem;
-            text-align: center;
-        }
-
-        .footer p {
-            color: var(--footer-text);
-            font-size: 0.875rem;
-        }
-
-        /* Responsive Styles */
+        /* Responsive adjustments */
         @media (min-width: 768px) {
-            .hamburger-menu { display: none; }
-            .nav-links { display: flex; }
             .dashboard-container { grid-template-columns: 1fr 2fr; }
             .forecast-grid { grid-template-columns: repeat(3, 1fr); }
         }
@@ -305,30 +431,22 @@
 </head>
 <body>
 
-    <header class="header">
-        <div class="header-container">
+    <header id="header">
+        <div class="navbar">
             <a href="#" class="logo">Sailesh<span>Sitaula</span></a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#">Experience</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">Certifications</a></li>
-                    <li><a href="#">Contact</a></li>
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#" class="nav-link">Experience</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Certifications</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
-            <button class="hamburger-menu" id="hamburger-btn" aria-label="Toggle menu">
+            <div class="hamburger" id="hamburger-btn">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </button>
-        </div>
-        <div class="mobile-nav" id="mobile-menu">
-             <ul>
-                <li><a href="#">Experience</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Certifications</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+            </div>
         </div>
     </header>
 
@@ -416,7 +534,7 @@
     </main>
 
     <footer class="footer">
-        <div class="container">
+        <div class="footer-content">
             <p>&copy; 2025 Sailesh Sitaula. All Rights Reserved.</p>
         </div>
     </footer>
@@ -425,11 +543,20 @@
         // Hamburger Menu Script
         document.addEventListener('DOMContentLoaded', function () {
             const hamburgerBtn = document.getElementById('hamburger-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
+            const navMenu = document.querySelector('.nav-menu');
 
             hamburgerBtn.addEventListener('click', function () {
                 hamburgerBtn.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking on a nav link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburgerBtn.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
             });
         });
 
@@ -529,31 +656,38 @@
 
                 const forecastData = data.forecasts;
                 forecastChartArima.data.labels = forecastData.dates;
-                forecastChartArima.data.datasets[0].data = forecastData.actual;
+                forecastChartArima.data.datasets[0].data = forecastData.actual;     
                 forecastChartArima.data.datasets[1].data = forecastData.arima;
                 forecastChartArima.update();
-
                 forecastChartLstm.data.labels = forecastData.dates;
                 forecastChartLstm.data.datasets[0].data = forecastData.actual;
                 forecastChartLstm.data.datasets[1].data = forecastData.lstm;
                 forecastChartLstm.update();
-
                 forecastChartSarima.data.labels = forecastData.dates;
                 forecastChartSarima.data.datasets[0].data = forecastData.actual;
                 forecastChartSarima.data.datasets[1].data = forecastData.sarima;
                 forecastChartSarima.update();
             }
-
-            tomatoBtn.addEventListener('click', () => { currentCommodity = 'tomato'; updateView(); });
-            potatoBtn.addEventListener('click', () => { currentCommodity = 'potato'; updateView(); });
-            
+            // Initialize charts
             initPerformanceChart();
-            forecastChartArima = createForecastChart('forecastChartArima', '#333');
-            forecastChartLstm = createForecastChart('forecastChartLstm', '#555');
-            forecastChartSarima = createForecastChart('forecastChartSarima', '#888');
-            
+            forecastChartArima = createForecastChart('forecastChartArima', '#ff6384');
+            forecastChartLstm = createForecastChart('forecastChartLstm', '#36a2eb');
+            forecastChartSarima = createForecastChart('forecastChartSarima', '#ffce56');
             updateView();
+            // Event listeners for commodity buttons
+            tomatoBtn.addEventListener('click', () => {
+                currentCommodity = 'tomato';
+                updateView();
+            });
+            potatoBtn.addEventListener('click', () => {
+                currentCommodity = 'potato';
+                updateView();
+            });
         });
-    </script>
+    </script>   
 </body>
-</html>
+</html> 
+<!-- End of HTML Document -->
+<!-- This HTML document is a complete and self-contained example of a project page for "Vegetable
+Price Forecasting". It includes a header, main content area with a dashboard for model performance, and a footer. The JavaScript section handles the interactivity of the dashboard, including switching between different commodities (tomato and potato) and updating the charts accordingly. The CSS styles are designed to be responsive and visually appealing, following a monochrome theme. -->
+<!-- The project showcases the use of time series models for forecasting agricultural commodity prices, with a focus
